@@ -11,11 +11,16 @@ screen = pygame.display.set_mode(size)
 #set title of the window
 pygame.display.set_caption("Bat and Ball")
 
+#make mouse cursor invisible
 pygame.mouse.set_visible(0)
 
+#create bat surface
 bat_surf = pygame.Surface((64,12))
+#set bat color
 bat_surf.fill((0,255,0))
+#get rectangular area of bat_surf
 batrect = bat_surf.get_rect()
+#do similar with ball
 ball_surf = pygame.Surface((30,30))
 ballrect = ball_surf.get_rect()
 
@@ -60,14 +65,12 @@ while done == 0:
 		screen.blit(text, textRect)
 		pygame.display.flip()
 		pygame.time.wait(2000)
-		tick_count = 60
 		ballrect.top=0; ballrect.left=(size[0]/2)
 
 	screen.blit(ball_surf,ballrect)
 	screen.blit(bat_surf,batrect)
 
-	clock.tick(tick_count)
-	tick_count = tick_count
+	clock.tick(100)
 	pygame.display.flip()
 
 
